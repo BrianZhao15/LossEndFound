@@ -3,66 +3,32 @@ import "./Form.css";
 import FormInput from "./FormInput/FormInput";
 import Button from "../../Button/Button";
 import SearchCard from "../SearchCard/SearchCard";
-
-//color, shape, size, date it was lost,
+import SearchCardHeader from "../SearchCard/SearchCardHeader/SearchCardHeader";
 
 function Form() {
-  //label, type, name, value, placeholder, onChange
-  const [formData, setFormData] = useState({
-    color: "",
-    shape: "",
-    size: "",
-    dateOfLoss: "",
-  });
+  const [description, setDescription] = useState("");
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    setDescription(e.target.value);
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form Submitted", formData);
-    // handle form submission logic here
+    console.log("Form Submitted Value of: ", description);
   };
   return (
     <SearchCard scroll="hidden">
+      <SearchCardHeader>Enter Lost Item Description</SearchCardHeader>
       <FormInput
-        label="Color"
+        label="Description"
         type="text"
         name="color"
-        value={formData.firstName}
-        placeholder="color of item"
-        onChange={handleChange}
-      />
-      <FormInput
-        label="Shape"
-        type="text"
-        name="shape"
-        value={formData.shape}
-        placeholder="shape of item"
-        onChange={handleChange}
-      />
-      <FormInput
-        label="Size"
-        type="text"
-        name="firstName"
-        value={formData.firstName}
-        placeholder="size of item"
-        onChange={handleChange}
-      />
-      <FormInput
-        label="Date of loss"
-        type="date"
-        name="dateOfLoss"
-        value={formData.dateOfLoss}
+        value={description}
+        placeholder="color, size, shape etc."
         onChange={handleChange}
       />
       <div className="update-query-form-button">
         <Button
-          location=""
+          onClick={handleSubmit}
           buttonStyle="btn-outline"
           buttonSize="btn-max-width"
         >

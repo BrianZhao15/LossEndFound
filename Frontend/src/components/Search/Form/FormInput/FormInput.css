@@ -4,13 +4,17 @@
   margin-bottom: 8px;
 }
 .form-input {
+  display: flex;
+  justify-content: start;
+  align-items: baseline;
   margin-bottom: 16px;
   padding: 8px;
-  height: 42px;
+  height: 64px;
   font-size: 14px;
   border-radius: 8px;
   background-color: #ffffff;
   border: none;
+  resize: none;
 }
 input[type="date"] {
   color: #7d7d7d;

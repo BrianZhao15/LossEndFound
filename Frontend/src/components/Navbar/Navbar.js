@@ -62,11 +62,11 @@ function Navbar() {
 
           {!menuShown && (
             <Button
-              location="https://github.com/Sudhan-Dahake/Lost_And_Found/"
+              location="/signup"
               buttonStyle="btn-primary"
               buttonSize="btn-meduim"
             >
-              Source Code
+              Sign Up/Log In
             </Button>
           )}
           <div className="menu-icon" onClick={handleClick}>
@@ -81,11 +81,11 @@ function Navbar() {
           >
             <NavbarLinks closeMobileMenu={closeMobileMenu} />
             <Button
-              location="https://github.com/Sudhan-Dahake/Lost_And_Found/"
+              location="/signup"
               buttonStyle="btn-primary"
               buttonSize="btn-meduim"
             >
-              Source Code
+              Sign Up/Log In
             </Button>
           </div>
         )}
