@@ -1,0 +1,12 @@
+.description-section-header {
+  font-size: 24px;
+  color: #ffffff;
+}
+.description-section-header-highlighted {
+  color: #1e629d;
+  font-size: 32px;
+  font-weight: 800;
+}
+.description-section-header-container {
+  margin-bottom: 32px;
+}

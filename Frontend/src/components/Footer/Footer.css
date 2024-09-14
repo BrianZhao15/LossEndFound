@@ -1,0 +1,35 @@
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #242424;
+  padding: 16px;
+  position: relative;
+  z-index: 999;
+}
+.link-text {
+  color: #2781f0;
+}
+.content {
+  font-size: 14px;
+  margin: 8px;
+  color: #ffffff;
+  text-align: center;
+}
+.icon {
+  margin: 8px;
+  font-size: 18px;
+}
+.icon-link {
+  text-decoration: none;
+  color: #ffffff;
+  transition: all 0.2s ease-in-out;
+}
+
+.icon-link:hover {
+  color: #41b9ff;
+}
+.link-text:hover {
+  color: #1660ba;
+}

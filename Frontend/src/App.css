@@ -1,0 +1,52 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Prompt", sans-serif;
+}
+.letter {
+  letter-spacing: 1vw;
+  font-size: 4.5rem;
+}
+
+@keyframes letterAnimation {
+  0% {
+    transform: translateY(-60px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+.description-text-transition {
+  animation: descriptionTextAnimation ease 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  transform: translateY(-60px);
+  opacity: 0;
+}
+@keyframes descriptionTextAnimation {
+  0% {
+    transform: translateY(-60px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 1180px) {
+  .letter {
+    font-size: 4rem !important;
+    letter-spacing: normal;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .letter {
+    font-size: 3rem !important;
+    letter-spacing: normal;
+  }
+}
