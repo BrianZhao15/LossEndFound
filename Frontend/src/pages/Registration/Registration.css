@@ -1,0 +1,107 @@
+section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+h1 {
+  color: #ffffff;
+}
+.registration-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #000413;
+  margin: none !important;
+}
+.regristration-inner-container {
+  padding-top: 200px;
+  padding-bottom: 100px;
+  width: 40%;
+}
+.registration-card {
+  height: 600px;
+  padding: 32px;
+  background-color: #0f1d38;
+  border-radius: 8px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-grow: 1;
+  padding-bottom: 1rem;
+}
+
+a,
+a:visited {
+  color: #fff;
+}
+.registration-subtext {
+  color: #ffffff;
+}
+.label {
+  margin-bottom: 8px;
+}
+.registration-button-container {
+  margin-top: 32px;
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+  font-family: "Nunito", sans-serif;
+  font-size: 22px;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+}
+
+label,
+.instructions {
+  font-size: 14px;
+  border-radius: 8px;
+  color: #fff;
+  padding: 0.25rem;
+  position: relative;
+  bottom: -10px;
+}
+.instructions {
+  color: #cb0000;
+}
+
+.instructions > svg {
+  margin-right: 0.25rem;
+}
+
+.offscreen {
+  position: absolute;
+  left: -9999px;
+}
+
+.hide {
+  display: none;
+}
+
+.valid {
+  color: limegreen;
+  margin-left: 0.25rem;
+}
+
+.invalid {
+  color: red;
+  margin-left: 0.25rem;
+}
+
+.errmsg {
+  background-color: lightpink;
+  color: firebrick;
+  font-weight: bold;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.line {
+  display: inline-block;
+}

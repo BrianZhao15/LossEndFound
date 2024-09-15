@@ -1,0 +1,14 @@
+.form-card {
+  background-color: #0f1d38;
+  border-radius: 8px;
+  padding: 32px;
+  width: 80%;
+  height: 450px;
+  scrollbar-color: #14264a #0c1932;
+}
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
