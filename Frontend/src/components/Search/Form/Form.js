@@ -10,8 +10,14 @@ function Form() {
   const [type, setType] = useState("");
   const [title, setTitle] = useState("");
 
-  const handleChange = (e) => {
+  const handleDescriptionChange = (e) => {
     setDescription(e.target.value);
+  };
+  const handleTypeChange = (e) => {
+    setType(e.target.value);
+  };
+  const handleTitleChange = (e) => {
+    setTitle(e.target.value);
   };
 
   const handleSubmit = (e) => {
@@ -27,23 +33,23 @@ function Form() {
         name="Description"
         value={description}
         placeholder="specific details. eg. basketball with signatures"
-        onChange={handleChange}
+        onChange={handleDescriptionChange}
       />
       <FormInput
         label="Object type: "
         type="text"
-        name="color"
+        name="text"
         value={type}
         placeholder="basketball, football, airpods, etc."
-        onChange={handleChange}
+        onChange={handleTypeChange}
       />
       <FormInput
         label="Title: "
         type="text"
         name="title"
-        value={description}
+        value={title}
         placeholder="ex. lost brand new airpods"
-        onChange={handleChange}
+        onChange={handleTitleChange}
       />
       <div className="update-query-form-button">
         <Button
