@@ -11,6 +11,7 @@ import cohere
 import chromadb
 from chromadb.utils.embedding_functions import CohereEmbeddingFunction
 from sklearn.metrics.pairwise import cosine_similarity as cs
+from fastapi.middleware.cors import CORSMiddleware
 
 # Load environment variables from .env
 load_dotenv()
@@ -21,6 +22,16 @@ COHERE_KEY = os.getenv('COHERE_API_KEY')
 
 # Initialize FastAPI app
 app = FastAPI()
+
+
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],  # Your React frontend origin
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all HTTP methods (GET, POST, etc.)
+    allow_headers=["*"],  # Allows all headers
+)
 
 # Check for required keys
 if not FIREBASE_KEY or not COHERE_KEY:
