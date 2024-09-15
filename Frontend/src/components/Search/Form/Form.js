@@ -5,10 +5,11 @@ import Button from "../../Button/Button";
 import SearchCard from "../SearchCard/SearchCard";
 import SearchCardHeader from "../SearchCard/SearchCardHeader/SearchCardHeader";
 
-function Form() {
+function Form({ itemList, setItemList }) {
   const [description, setDescription] = useState("");
   const [type, setType] = useState("");
   const [title, setTitle] = useState("");
+  const [message, setMessage] = useState('');
 
   const handleDescriptionChange = (e) => {
     setDescription(e.target.value);
@@ -19,10 +20,47 @@ function Form() {
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
   };
-
-  const handleSubmit = (e) => {
+  const uploadLostItem = async () => {
     const newItem = { description: description, type: type, title: title };
-    console.log("Form Submitted Value of: ", newItem);
+
+    try {
+      // const response = await fetch('http://localhost/lost_item/', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/x-www-form-urlencoded',
+      //   },
+      //   body: new URLSearchParams({
+      //     title: title,
+      //     description: description,
+      //     object_type: type,
+      //   }),
+      // });
+
+      // if (!response.ok) {
+      //   throw new Error('Failed to upload lost item');
+      // }
+
+      // const data = await response.json();
+      // setMessage(data.message);  // Set success message from backend
+
+
+      const response = await fetch(`http://localhost/match_lost_item/?description=${description}&object_type=${type}`, {
+        method: 'GET',
+      });
+
+      if (!response.ok) {
+        throw new Error('No matches found');
+      }
+
+      const data = await response.json();
+      setItemList(data.matches)
+      console.log(itemList);
+
+
+    } catch (error) {
+      console.error('Error:', error);
+      setMessage('An error occurred while uploading the lost item.');
+    }
   };
   return (
     <SearchCard scroll="hidden">
@@ -53,7 +91,7 @@ function Form() {
       />
       <div className="update-query-form-button">
         <Button
-          onClick={handleSubmit}
+          onClick={uploadLostItem}
           buttonStyle="btn-outline"
           buttonSize="btn-max-width"
         >

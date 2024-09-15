@@ -15,7 +15,7 @@ function Search() {
   ]);
   return (
     <div className="search-container">
-      <Form />
+      <Form itemList={lostItems} setItemList={setLostItems} />
       <List items={lostItems} setLostItems={setLostItems} />
     </div>
   );

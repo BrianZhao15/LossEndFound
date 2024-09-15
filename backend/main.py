@@ -77,10 +77,13 @@ def extract_image_features(image: Image.Image):
 # Helper function to calculate cosine similarity between embeddings
 
 
+# def cosine_similarity(embedding1, embedding2):
+#     # Ensure embeddings are flattened to 1D
+#     embedding1 = np.ravel(embedding1)
+#     embedding2 = np.ravel(embedding2)
+#     return cs([embedding1], [embedding2])[0][0]
+
 def cosine_similarity(embedding1, embedding2):
-    # Ensure embeddings are flattened to 1D
-    embedding1 = np.ravel(embedding1)
-    embedding2 = np.ravel(embedding2)
     return cs([embedding1], [embedding2])[0][0]
 
 # Model for Lost Item
@@ -158,9 +161,13 @@ async def upload_found_item(image: UploadFile = File(...), description: str = Fo
 # Lowered threshold for testing
 async def match_lost_item(description: str, object_type: str, threshold: float = 0.8):
     try:
+        print("1")
+
         # Generate embedding for lost item description using Cohere
         query_embedding = cohere_client.embed(
             texts=[description], model="embed-multilingual-v2.0").embeddings[0]
+        
+        print("2")
 
         # Debugging: Check if embedding was generated properly
         # print(f"Generated embedding for description: {query_embedding}")
@@ -168,6 +175,8 @@ async def match_lost_item(description: str, object_type: str, threshold: float =
         # Search in ChromaDB for similar found items
         results = chroma_collection.query(
             query_embeddings=[query_embedding], n_results=3, include=["embeddings", "metadatas", "distances"])
+        
+        print("3")
 
         # Debugging: Output the raw results from ChromaDB
         # print(f"Query Results from ChromaDB: {results}")
@@ -175,41 +184,75 @@ async def match_lost_item(description: str, object_type: str, threshold: float =
         # Ensure results are not empty and contain valid metadata
         if not results or "metadatas" not in results or not results["metadatas"]:
             raise HTTPException(status_code=404, detail="No matches found")
+        
+        print("4")
 
         # Initialize an empty list for matches
         matches = []
 
+        print(f'results {results}')
+
         # Iterate through the results and filter by object type and threshold
         for idx, metadata in enumerate(results["metadatas"]):
-            # print(f"Checking metadata {metadata}")  # Debugging output
+            #print(f"Checking metadata {metadata}")  # Debugging output
             for dict in metadata:
-                # print(f"dict: {dict}")
-                # print(f'{"object_type" in dict}')
-                # print(
-                #     f'{dict["object_type"]}-----{object_type[1:len(object_type) - 1]}')
-                if "object_type" in dict and dict["object_type"] == object_type[1:len(object_type) - 1]:
+
+                print(f"dict: {dict}")
+                print(f'{"object_type" in dict}')
+                print(f'{dict["object_type"]}-------{object_type}')
+                if "object_type" in dict and dict["object_type"] == object_type:
                     # print(f"Hello World")
                     # Get the corresponding embedding
                     stored_embedding = np.array(results["embeddings"][idx])
 
-                    # print(f"stored_embedding successful")
+                    print(f"{stored_embedding}")
+                    print(f"{stored_embedding.shape}")
 
-                    # Calculate similarity
-                    similarity = cosine_similarity(
-                        query_embedding, stored_embedding)
+                    # # Calculate similarity
+                    # similarity = cosine_similarity(
+                    #     query_embedding, stored_embedding)
                     # print(f"Similarity: {similarity}")  # Debugging output
 
-                    # Check if the similarity exceeds the threshold
-                    if similarity >= threshold:
+                    # Compute cosine similarity between query_embedding and each of the 3 embeddings
+                    similarities = [cosine_similarity(
+                        query_embedding, stored_embedding[i]) for i in range(stored_embedding.shape[0])]
+
+                    print(f'similarities {similarities}')
+                    
+                    # Filter out similarities that are >= the threshold (e.g., 0.8)
+                    filtered_similarities = [sim for sim in similarities if sim >= threshold]
+
+                    print(filtered_similarities)
+
+                    # # Check if the similarity exceeds the threshold
+                    # if similarities >= threshold:
+                    #     matches.append(
+                    #         {"metadata": metadata, "similarity": similarities})
+                        
+                      # If any similarity passes the threshold, append the result
+                    if filtered_similarities:
                         matches.append(
-                            {"metadata": metadata, "similarity": similarity})
+                            {"metadata": results["metadatas"][idx],
+                                "similarities": filtered_similarities}
+                        )
+                        # matches.append(
+                        #     {"metadata": results["metadatas"][idx],
+                        #         "similarities": filtered_similarities}
+                        # )
+                        
+        print("5")
+
+        print(matches)
+        print("-----------------------------------------------------------------------")
+        print(matches[0])
 
         # If no matches found above the threshold
         if not matches:
+            print("6")
             raise HTTPException(
                 status_code=404, detail="No relevant matches found")
 
-        return {"matches": matches}
+        return {"matches": matches[0]}
 
     except Exception as e:
         # Print the full exception for debugging
