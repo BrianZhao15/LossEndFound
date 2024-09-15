@@ -8,11 +8,11 @@ function ListItem({ itemData }) {
     <div className="list-item">
       <div className="list-item-description-container">
         <div className="inner-container-one">
-          <div className="list-item-header">Found by {itemData.finder}</div>
+          <div className="list-item-header">Found by sherlock</div>
           <div className="list-item-description">{itemData.description}</div>
         </div>
         <div className="inner-container-two">
-          <div className="contact">contact: {itemData.contact}</div>
+          <div className="contact">contact: 2654784569</div>
         </div>
       </div>
       <div className="list-item-image-container">

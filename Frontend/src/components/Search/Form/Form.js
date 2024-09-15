@@ -21,7 +21,6 @@ function Form({ itemList, setItemList }) {
     setTitle(e.target.value);
   };
   const uploadLostItem = async () => {
-    const newItem = { description: description, type: type, title: title };
 
     try {
       // const response = await fetch('http://localhost/lost_item/', {
@@ -53,7 +52,7 @@ function Form({ itemList, setItemList }) {
       }
 
       const data = await response.json();
-      setItemList(data.matches)
+      setItemList(data.matches.metadata)
       console.log(itemList);
 
 

@@ -190,12 +190,12 @@ async def match_lost_item(description: str, object_type: str, threshold: float =
         # Initialize an empty list for matches
         matches = []
 
-        print(f'results {results}')
-
         # Iterate through the results and filter by object type and threshold
         for idx, metadata in enumerate(results["metadatas"]):
             #print(f"Checking metadata {metadata}")  # Debugging output
             for dict in metadata:
+
+                # [1:(len(object_type) - 1)]
 
                 print(f"dict: {dict}")
                 print(f'{"object_type" in dict}')

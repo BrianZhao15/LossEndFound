@@ -6,7 +6,7 @@ import SearchCardHeader from "../SearchCard/SearchCardHeader/SearchCardHeader";
 function List({ items }) {
   return (
     <SearchCard scroll="scroll">
-      <SearchCardHeader>Found 5 results...</SearchCardHeader>
+      <SearchCardHeader>Found {items.length} results...</SearchCardHeader>
       {items.map((item) => (
         <ListItem itemData={item} />
       ))}
