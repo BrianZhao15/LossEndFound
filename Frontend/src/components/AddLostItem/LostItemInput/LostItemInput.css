@@ -1,0 +1,19 @@
+.lost-item-form-input-container {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+
+  width: 100%;
+  margin-bottom: 16px;
+}
+.lost-item-form-input {
+  border-radius: 8px;
+  border: none;
+  text-align: center;
+  height: 30px;
+  width: 100%;
+}
+.lost-item-form-label {
+  color: #ffffff;
+  margin-bottom: 4px;
+}

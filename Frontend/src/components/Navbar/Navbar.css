@@ -1,0 +1,110 @@
+.navbar-root-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  top: 0px;
+  z-index: 999;
+  margin-top: 24px;
+  position: absolute;
+}
+
+.navbar-container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 400px;
+  max-height: 80px;
+  padding: 16px;
+  border-radius: 16px;
+  background-color: #242424;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0px 23px 22px -1px rgba(0, 0, 0, 0.42);
+}
+
+.desktop-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.navbar-sections-links-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12;
+}
+
+.navbar-section-link {
+  color: #ffffff;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.navbar-section-link-container {
+  transition: all 0.2s ease-in-out;
+  margin: 8px;
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+
+.navbar-logo-link {
+  color: #ffffff;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  font-weight: 400;
+  font-size: 24px;
+  padding: 10px 20px;
+  font-family: "M PLUS 1 Code", monospace;
+}
+
+.navbar-section-link-container:hover {
+  background-color: #8b8b8b95;
+  transition: all 0.2s ease-in-out;
+  padding: 8px 16px;
+}
+
+.navbar-section-link:hover {
+  font-size: 16px;
+  transition: all 0.2s ease-in-out;
+}
+
+.menu-icon {
+  display: none;
+}
+
+.mobile-navbar-sections-links-container {
+  transition: all 0.2s ease-in-out;
+  flex-direction: column;
+  background-color: #e1000000;
+  width: 100%;
+}
+.navbar-container.active {
+  max-height: 380px;
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+}
+.navbar-container.scrolled {
+  width: 100%;
+  border-radius: 0px 0px 16px 16px;
+}
+.navbar-root-container.scrolled {
+  margin: 0px;
+  position: fixed;
+}
+.navbar-logo-link:hover {
+  font-weight: 800;
+}
+
+@media screen and (max-width: 1100px) {
+  .menu-icon {
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    margin-right: 12px;
+    color: #ffffff;
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+}
