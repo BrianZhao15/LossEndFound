@@ -7,23 +7,42 @@ import SearchCardHeader from "../SearchCard/SearchCardHeader/SearchCardHeader";
 
 function Form() {
   const [description, setDescription] = useState("");
+  const [type, setType] = useState("");
+  const [title, setTitle] = useState("");
 
   const handleChange = (e) => {
     setDescription(e.target.value);
   };
 
   const handleSubmit = (e) => {
-    console.log("Form Submitted Value of: ", description);
+    const newItem = { description: description, type: type, title: title };
+    console.log("Form Submitted Value of: ", newItem);
   };
   return (
     <SearchCard scroll="hidden">
       <SearchCardHeader>Enter Lost Item Description</SearchCardHeader>
       <FormInput
-        label="Description"
+        label="Description: "
+        type="textarea"
+        name="Description"
+        value={description}
+        placeholder="specific details. eg. basketball with signatures"
+        onChange={handleChange}
+      />
+      <FormInput
+        label="Object type: "
         type="text"
         name="color"
+        value={type}
+        placeholder="basketball, football, airpods, etc."
+        onChange={handleChange}
+      />
+      <FormInput
+        label="Title: "
+        type="text"
+        name="title"
         value={description}
-        placeholder="color, size, shape etc."
+        placeholder="ex. lost brand new airpods"
         onChange={handleChange}
       />
       <div className="update-query-form-button">

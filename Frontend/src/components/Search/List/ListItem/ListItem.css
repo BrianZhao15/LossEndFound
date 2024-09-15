@@ -23,8 +23,19 @@
 }
 .list-item-image-container {
   width: 30%;
+  overflow: hidden;
 }
 .list-item-image {
   height: 100%;
   border-radius: 8px;
+}
+.contact {
+  color: #ffffff;
+  font-size: 12px;
+}
+.inner-container-one {
+  height: 80%;
+}
+.inner-container-two {
+  height: 20%;
 }
