@@ -3,7 +3,9 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  padding-top: 75px;
 }
+
 .description-section-inner-container {
   display: flex;
   flex-direction: row;
@@ -12,12 +14,15 @@
   padding: 16px;
   width: 80%;
 }
+
 .search-button-container {
   margin-top: 16px;
 }
+
 .description-section-text {
   color: #ffffff;
 }
+
 .description-section-text-container {
   display: flex;
   flex-direction: column;
@@ -25,6 +30,7 @@
   padding: 16px;
   width: 50%;
 }
+
 .description-section-image-container {
   margin: 16px;
   display: flex;
@@ -33,6 +39,7 @@
   align-items: center;
   width: 50%;
 }
+
 .description-section-image {
   width: 80%;
   border-radius: 8px;

@@ -1,0 +1,9 @@
+.confirmation-container {
+  width: 100%;
+  height: 50px;
+  background-color: #1fd11f;
+  padding: 8px;
+  border-radius: 8px;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
