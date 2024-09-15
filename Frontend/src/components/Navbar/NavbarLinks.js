@@ -10,16 +10,10 @@ function NavbarLinks({ closeMobileMenu }) {
         to="/search"
         onClick={closeMobileMenu}
       >
-        <div className="navbar-section-link-container">Search</div>
+        <div className="navbar-section-link-container">Search For Item</div>
       </Link>
       <Link className="navbar-section-link" to="/add" onClick={closeMobileMenu}>
-        <div className="navbar-section-link-container">Add</div>
-      </Link>
-      <Link className="navbar-section-link" onClick={closeMobileMenu}>
-        <div className="navbar-section-link-container">Test2</div>
-      </Link>
-      <Link className="navbar-section-link" onClick={closeMobileMenu}>
-        <div className="navbar-section-link-container">Test3</div>
+        <div className="navbar-section-link-container">Add Found Item</div>
       </Link>
     </>
   );
