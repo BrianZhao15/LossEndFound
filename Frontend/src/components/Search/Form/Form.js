@@ -1,96 +1,64 @@
 import React, { useState } from "react";
+import axios from 'axios';  // Make sure axios is imported
 import "./Form.css";
 import FormInput from "./FormInput/FormInput";
 import Button from "../../Button/Button";
 import SearchCard from "../SearchCard/SearchCard";
 import SearchCardHeader from "../SearchCard/SearchCardHeader/SearchCardHeader";
 
-function Form({ itemList, setItemList }) {
-  const [description, setDescription] = useState("");
-  const [type, setType] = useState("");
-  const [title, setTitle] = useState("");
-  const [message, setMessage] = useState('');
+const API_KEY = 'cohere_api_key';  // Remember to replace with your Cohere API key
+const BASE_URL = 'https://api.cohere.ai/v1/generate';
 
-  const handleDescriptionChange = (e) => {
-    setDescription(e.target.value);
+function Form() {
+  const [description, setDescription] = useState("");  // The state for input
+
+  const handleChange = (e) => {
+    setDescription(e.target.value);  // Handle change in inputted data in field to parse
   };
-  const handleTypeChange = (e) => {
-    setType(e.target.value);
-  };
-  const handleTitleChange = (e) => {
-    setTitle(e.target.value);
-  };
-  const uploadLostItem = async () => {
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault();  // Prevent default form submission behavior I guess
+
+    console.log("Form Submitted Value of:", description);
 
     try {
-      // const response = await fetch('http://localhost/lost_item/', {
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-Type': 'application/x-www-form-urlencoded',
-      //   },
-      //   body: new URLSearchParams({
-      //     title: title,
-      //     description: description,
-      //     object_type: type,
-      //   }),
-      // });
+      const response = await axios.post(
+        BASE_URL,
+        {
+          model: 'command-xlarge-nightly',  // The Cohere model of the playground AI
+          prompt: description,  // Send the description entered by the user to server side
+          max_tokens: 100,
+          temperature: 0.7,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${API_KEY}`,  // Be sure to add your own Cohere API Key here
+            'Content-Type': 'application/json',
+          },
+        }
+      );
 
-      // if (!response.ok) {
-      //   throw new Error('Failed to upload lost item');
-      // }
-
-      // const data = await response.json();
-      // setMessage(data.message);  // Set success message from backend
-
-
-      const response = await fetch(`http://localhost/match_lost_item/?description=${description}&object_type=${type}`, {
-        method: 'GET',
-      });
-
-      if (!response.ok) {
-        throw new Error('No matches found');
-      }
-
-      const data = await response.json();
-      setItemList(data.matches.metadata)
-      console.log(itemList);
-
-
+      console.log("Cohere Response:", response.data.generations[0].text);
     } catch (error) {
-      console.error('Error:', error);
-      setMessage('An error occurred while uploading the lost item.');
+      console.error('Error calling Cohere API:', error);
     }
   };
+
   return (
     <SearchCard scroll="hidden">
       <SearchCardHeader>Enter Lost Item Description</SearchCardHeader>
       <FormInput
-        label="Description: "
-        type="textarea"
-        name="Description"
+        label="Description"
+        type="text"
+        name="description"
         value={description}
-        placeholder="specific details. eg. basketball with signatures"
-        onChange={handleDescriptionChange}
-      />
-      <FormInput
-        label="Object type: "
-        type="text"
-        name="text"
-        value={type}
-        placeholder="basketball, football, airpods, etc."
-        onChange={handleTypeChange}
-      />
-      <FormInput
-        label="Title: "
-        type="text"
-        name="title"
-        value={title}
-        placeholder="ex. lost brand new airpods"
-        onChange={handleTitleChange}
+        placeholder="color, size, shape etc."
+        onChange={handleChange}
+        onChange={handleChange}
       />
       <div className="update-query-form-button">
         <Button
-          onClick={uploadLostItem}
+          onClick={handleSubmit}
           buttonStyle="btn-outline"
           buttonSize="btn-max-width"
         >
@@ -100,5 +68,4 @@ function Form({ itemList, setItemList }) {
     </SearchCard>
   );
 }
-
 export default Form;

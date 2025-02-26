@@ -1,3 +1,8 @@
+# 🔎 Lost_And_Found
+
+https://www.youtube.com/watch?v=Jl3UXhts0GA
+Watch the full demo HTN 11!
+=======
 # LossEndFound - Lost and Found Application
 
 LossEndFound is an AI-powered Lost and Found application designed to help users find lost items by utilizing vector similarity search capabilities. The system leverages similarity search (using cosine) to match lost and found items based on their user's description of the Item.
