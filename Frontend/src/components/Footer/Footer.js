@@ -23,19 +23,19 @@ function Footer() {
       </div>
       <div className="content copyright-container">
         Made by{" "}
-        <Link className="link-text" target="_blank" to="https://react.dev/">
+        <Link className="link-text" target="_blank" to="https://github.com/Sudhan-Dahake">
           Sudhan Dahake
         </Link>
         ,{" "}
-        <Link className="link-text" target="_blank" to="https://react.dev/">
-          Jason Chou
+        <Link className="link-text" target="_blank" to="https://github.com/jasonchou0105">
+          Jason Chout
         </Link>
         ,{" "}
-        <Link className="link-text" target="_blank" to="https://react.dev/">
+        <Link className="link-text" target="_blank" to="https://linktr.ee/vedant.sheel">
           Vedant Sheel
         </Link>
         ,{" "}
-        <Link className="link-text" target="_blank" to="https://react.dev/">
+        <Link className="link-text" target="_blank" to="https://github.com/BrianZhao10">
           Brian Zhao
         </Link>
       </div>
@@ -43,6 +43,8 @@ function Footer() {
         Made with{" "}
         <Link className="link-text" target="_blank" to="https://react.dev/">
           React.js
+        </Link> and <Link className="link-text" target="_blank" to="https://fastapi.tiangolo.com/">
+          Fast API
         </Link>
       </div>
     </div>

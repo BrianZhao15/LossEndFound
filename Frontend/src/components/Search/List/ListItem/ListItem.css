@@ -13,7 +13,7 @@
   width: 70%;
 }
 .list-item-description {
-  font-size: 12px;
+  font-size: 14px;
   color: #ffffff;
 }
 .list-item-header {
@@ -23,8 +23,19 @@
 }
 .list-item-image-container {
   width: 30%;
+  overflow: hidden;
 }
 .list-item-image {
   height: 100%;
   border-radius: 8px;
+}
+.contact {
+  color: #ffffff;
+  font-size: 12px;
+}
+.inner-container-one {
+  height: 80%;
+}
+.inner-container-two {
+  height: 20%;
 }

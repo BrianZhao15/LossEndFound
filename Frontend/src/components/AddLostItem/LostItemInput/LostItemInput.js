@@ -1,9 +1,9 @@
 import React from "react";
-import "./FormInput.css";
+import "./LostItemInput.css";
 function FormInput({ label, type, name, value, placeholder, onChange }) {
   return (
-    <div className="form-input-container">
-      <label className="form-label">{label}</label>
+    <div className="lost-item-form-input-container">
+      <label className="lost-item-form-label">{label}</label>
       {type === "textarea" ? (
         <textarea
           rows={3}
@@ -12,7 +12,7 @@ function FormInput({ label, type, name, value, placeholder, onChange }) {
           value={value}
           onChange={onChange}
           placeholder={placeholder}
-          className="form-input"
+          className="lost-item-form-input"
         />
       ) : (
         <input
@@ -21,7 +21,7 @@ function FormInput({ label, type, name, value, placeholder, onChange }) {
           value={value}
           onChange={onChange}
           placeholder={placeholder}
-          className="form-input"
+          className="lost-item-form-input"
         />
       )}
     </div>

@@ -6,6 +6,7 @@ import Search from "./pages/Search/Search";
 import Footer from "./components/Footer/Footer";
 import SignUp from "./components/Registration/SignUp/SignUp";
 import Login from "./components/Registration/Login/Login";
+import AddLostItem from "./pages/AddLostItem/AddLostItem";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" exact Component={Home} />
         <Route path="/search" exact Component={Search} />
+        <Route path="/add" exact Component={AddLostItem} />
         <Route path="/signup" exact Component={SignUp} />
         <Route path="/login" exact Component={Login} />
       </Routes>

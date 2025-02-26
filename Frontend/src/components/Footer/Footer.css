@@ -8,19 +8,24 @@
   position: relative;
   z-index: 999;
 }
+
 .link-text {
   color: #2781f0;
 }
+
 .content {
   font-size: 14px;
   margin: 8px;
+  margin-bottom: 16px;
   color: #ffffff;
   text-align: center;
 }
+
 .icon {
   margin: 8px;
   font-size: 18px;
 }
+
 .icon-link {
   text-decoration: none;
   color: #ffffff;
@@ -30,6 +35,7 @@
 .icon-link:hover {
   color: #41b9ff;
 }
+
 .link-text:hover {
   color: #1660ba;
 }

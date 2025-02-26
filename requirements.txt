@@ -1,0 +1,22 @@
+# FastAPI and Uvicorn for the web framework
+fastapi
+uvicorn
+
+# Firebase Admin SDK for authentication
+firebase-admin
+
+# Cohere API for embeddings
+cohere
+
+# Chroma for similarity search
+chromadb
+
+# Pydantic for data validation
+pydantic
+
+# Other common utilities
+numpy
+pillow    # For image handling if needed
+
+# For CORS
+fastapi[all]

@@ -13,14 +13,11 @@
 .first-word > .letter:nth-child(4) {
   animation-delay: 0.3s;
 }
-.first-word > .letter:nth-child(5) {
-  animation-delay: 0.4s;
-}
 .letter {
   color: #ffffff;
 }
 
-/* .second-word > .letter:nth-child(1) {
+.second-word > .letter:nth-child(1) {
   animation-delay: 0.5s;
 }
 .second-word > .letter:nth-child(2) {
@@ -29,13 +26,27 @@
 .second-word > .letter:nth-child(3) {
   animation-delay: 0.7s;
 }
-.second-word > .letter:nth-child(4) {
-  animation-delay: 0.8s;
-} */
-.first-word {
+.third-word > .letter:nth-child(1) {
+  animation-delay: 0s;
+}
+.third-word > .letter:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.third-word > .letter:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.third-word > .letter:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.third-word > .letter:nth-child(5) {
+  animation-delay: 0s;
+}
+
+.word {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 8px 0px;
   flex-direction: row !important;
 }
 .header-container {

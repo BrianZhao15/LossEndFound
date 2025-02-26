@@ -3,16 +3,13 @@ import SearchCard from "../SearchCard/SearchCard";
 import ListItem from "./ListItem/ListItem";
 import SearchCardHeader from "../SearchCard/SearchCardHeader/SearchCardHeader";
 
-function List() {
+function List({ items }) {
   return (
     <SearchCard scroll="scroll">
-      <SearchCardHeader>Found 5 results...</SearchCardHeader>
-
-      <ListItem />
-      <ListItem />
-      <ListItem />
-      <ListItem />
-      <ListItem />
+      <SearchCardHeader>Found {items.length} results...</SearchCardHeader>
+      {items.map((item) => (
+        <ListItem itemData={item} />
+      ))}
     </SearchCard>
   );
 }

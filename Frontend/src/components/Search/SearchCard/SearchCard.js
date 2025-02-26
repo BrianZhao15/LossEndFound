@@ -1,6 +1,5 @@
 import React from "react";
 import "./SearchCard.css";
-import SearchCardHeader from "./SearchCardHeader/SearchCardHeader";
 
 function SearchCard({ children, scroll }) {
   return (

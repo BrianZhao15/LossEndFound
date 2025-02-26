@@ -1,0 +1,21 @@
+.add-lost-item-card {
+  display: flex;
+  justify-content: start;
+  align-items: baseline;
+  flex-direction: column;
+  border-radius: 8px;
+  width: 50%;
+  height: 72vh;
+  padding: 24px;
+  background-color: #063a68;
+}
+
+.add-lost-item-header {
+  color: #ffffff;
+  font-size: 24px;
+  margin-bottom: 32px;
+}
+
+.update-query-form-button {
+  width: 100%;
+}
